@@ -1,0 +1,61 @@
+:root {
+    --x: 16;
+}
+
+body {
+    margin: 0px;
+    background-image: url("media/doodle.jpg");  
+}
+
+#content-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: -25px 5px -35px 5px;
+}
+
+h1 {
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 50px;
+
+}
+
+img {
+    width:  30px;
+    height: 30px;
+    object-fit: cover;
+}
+
+img:hover {
+    cursor: pointer;
+    -webkit-transform: scale(1.1);
+}
+
+.chosen {
+    border: 1px solid rgba(81, 203, 238, 1);
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    margin: -1px;
+}
+
+#content-wrapper {
+    margin: 10px auto 10px auto;
+    width: 500px;
+    padding: 0px 10px 22px 10px;
+    background-color: white;
+    border: 3px dashed black;
+    box-shadow: 7px 7px 16px -4px rgba(0,0,0,0.75);
+}
+
+#container {
+    width: 470px;
+    height: 470px;
+    display: grid;
+    grid-template-columns: repeat(var(--x), minmax(1px, auto));
+    grid-template-rows: repeat(var(--x), minmax(1px, auto));
+    margin: auto;
+    padding: 1px;
+}
+
+.pixel {
+    background-color: white;
+    border: 1px solid #333333; 

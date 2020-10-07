@@ -1,0 +1,158 @@
+body {
+    margin: 0;
+    background-color: #fdf9fd;
+}
+
+h1 {
+    text-align: center;
+    font-size: 45px;
+    margin: 20px 0px 10px;
+    font-family: 'Press Start 2P', cursive;
+    background: linear-gradient(35deg, #CCFFFF, #FFCCCC);
+}
+
+h1:hover {
+    cursor: default;
+}
+
+
+h4 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+#commentary {
+    cursor: pointer;
+    padding: 0px 10px 0px 10px;
+    height: auto;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("media/just-waves.png");
+    border-radius: 12px;
+    border: 5px dashed rgb(7, 204, 194);
+    font-family: 'Concert One', cursive;
+    font-size: 3.0vw;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+#scoreboard {
+    padding: 15px 0px 10px 0px;
+    margin: auto;
+    margin-bottom: 20px;
+    height: auto;
+    width: 35%;
+    background-color: black;
+    border-radius: 12px;
+    border: 7px solid rgb(255, 0, 191);
+    box-shadow: 15px 15px 0px 0px rgb(0, 217, 255);
+    display: grid;
+    grid-template-columns: 24% 24% 24% 24%;
+    grid-template-rows: 1fr, 1fr, 1fr;
+    grid-template-areas: 
+    "selection1 header  header  selection2"
+    "selection1 player1 player2 selection2"
+    "selection1 score1  score2  selection2";
+    color:  #fdf9fd;
+    font-family: 'Concert One', cursive;
+    z-index: 1;
+}
+
+h2 {
+    font-size: 3.0vw;
+    grid-area: header;
+    justify-self: center;
+    margin-bottom: -10px;
+    margin-top: -10px;
+    min-width: 0px;
+}
+
+#start-game {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    z-index: 1;
+}
+
+#start {
+    margin-top: 22vh;
+    height: 70%;
+    width: 70%;
+}
+
+#player1 {
+    font-size: 1.6vw;
+    grid-area: player1;
+    justify-self: center;
+    margin-bottom: -30px;
+}
+
+#player1score {
+    font-size: 3.0vw;
+    grid-area: score1;
+    justify-self: center;
+    margin-bottom: 0px;
+    border-top: 1px dashed  #fdf9fd;
+}
+
+#player2 {
+    font-size: 1.6vw;
+    grid-area: player2;
+    justify-self: center;
+    margin-bottom: -30px;
+}
+
+#player2score {
+    font-size: 3.0vw;
+    grid-area: score2;
+    justify-self: center;
+    margin-bottom: 0px;
+    border-top: 1px dashed  #fdf9fd;
+}
+
+
+#selection-you {
+    font-size: 1.6vw;
+    grid-area: selection1;
+    align-self: center;
+    padding: 30px 0px;
+    color: rgb(7, 204, 194);
+}
+
+#selection-com {
+    font-size: 1.6vw;
+    grid-area: selection2;
+    align-self: center;
+    padding: 30px 0px;
+    color: rgb(7, 204, 194);
+}
+
+img {
+    margin-top: 10px;
+    -webkit-transition: width 0.07s, height 0.07s;
+    transition: width 0.07s, height 0.07s;
+}
+
+.choice {
+    height: 23%;
+    width: 23%;
+}
+
+#img-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+img:hover {
+    cursor: pointer;
+    -webkit-transform: scale(1.1);
+}
