@@ -82,8 +82,9 @@ function handleCalculation(button) {
         
             // Update result, update variables
             if (result) {
-                display.innerHTML = handleResultLength(result);
                 a = result;
+                result = handleResultLength(result);
+                display.innerHTML = result;
                 operator = null;
                 b = null;
             }
@@ -97,8 +98,9 @@ function handleCalculation(button) {
 
             // Update result, update variables
             if (result) {
-                display.innerHTML = handleResultLength(result);
                 a = result;
+                result = handleResultLength(result);
+                display.innerHTML = result;
                 operator = chosen_operator;
                 b = null;  
             }
@@ -183,11 +185,10 @@ function handleResultLength(result) {
             
         } else {
             // Display long numbers in scientific notation
-            x = result.length - 1;
-            result = ((parseInt(result)) / (10 ** x)).toFixed(5);
+            result = ((parseInt(result)) / (10 ** result.length)).toFixed(5);
             display_result = `${result} E${x}`;
         }
-
+        
     } else {
         display_result = result;
     }
