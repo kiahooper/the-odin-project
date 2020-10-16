@@ -40,9 +40,11 @@ buttons.forEach(button => {
 function populateDisplay(button) {
 
     // If current displayed number is previous result, no more digits can be added
-    if (display.innerHTML == result) {
-        display_value = "";
-    } 
+    if (result) {
+        if (display.innerHTML == handleResultLength(result)) {
+            display_value = "";
+        } 
+    }
 
     // If user presses number straight after calculation, result is not preserved
     if (a !== null && operator === null) {
@@ -83,8 +85,9 @@ function handleCalculation(button) {
             // Update result, update variables
             if (result) {
                 a = result;
-                result = handleResultLength(result);
-                display.innerHTML = result;
+                display_value = handleResultLength(result);
+                console.log(display_value);
+                display.innerHTML = display_value;
                 operator = null;
                 b = null;
             }
@@ -99,9 +102,11 @@ function handleCalculation(button) {
             // Update result, update variables
             if (result) {
                 a = result;
-                result = handleResultLength(result);
-                display.innerHTML = result;
+                display_value = handleResultLength(result);
+                console.log(display_value);
+                display.innerHTML = display_value;
                 operator = chosen_operator;
+                
                 b = null;  
             }
 
@@ -114,6 +119,7 @@ function handleCalculation(button) {
 
         // If calculation has been executed and next event is operator, use result as first operand
         } else if (a === result) {
+            console.log('a === result');
             operator = chosen_operator;
             display_value = "";
         }
@@ -165,32 +171,51 @@ function clearDisplay() {
 }
 
 function calculatePercentageDisplay() {
-    display_value = +(display_value) / 100
+    display_value = handleResultLength(+(display_value) / 100);
     display.innerHTML = display_value;
     display_value = display_value.toString();
 }
 
-function handleResultLength(result) {
+
+/* handleResultLength does not work with javascript scientific notation */
+function handleResultLength(l_result) {
     
     let display_result;
-    result = result.toString(10);
+    l_result = l_result.toString(10);
     
     // Check if result is longer than display limit
-    if (result.length > display_limit) {
-        n = result.indexOf(".");
+    if (l_result.length > display_limit) {
+        n = l_result.indexOf(".");
 
-        // If the number is a decimal, round the decimal to fit the display screen
+        // If the number is a decimal depending on if...
         if (n !== -1) {
-            display_result = roundResultIfNecessary(result, display_limit-n);
-            
-        } else {
-            // Display long numbers in scientific notation
-            result = ((parseInt(result)) / (10 ** result.length)).toFixed(5);
-            display_result = `${result} E${x}`;
-        }
+            // it's scientific notation
+            if (l_result.includes("e")){                
+                let result_arr = l_result.split("e");
+                display_result =`${parseFloat(result_arr[0]).toFixed(3)} E${result_arr[1]}`
+            }
+            // or a "normal" deciaml
+            else {
+                // Display long numbers in scientific notation
+                display_result = roundResultIfNecessary(l_result, display_limit-n);
+
+            }
         
+        // If not a decimal
+        } else {
+            /* ** UPDATE ** Display long numbers in scientific notation, 
+            (only handles large numbers, need to handle small numbers eventually) */
+            x = l_result.length-1;
+            if (x < 21) {
+                l_result = ((parseInt(l_result)) / (10 ** x)).toFixed(3);
+                display_result = `${l_result} E+${x}`;
+            } else {
+                let result_arr = l_result.split("e");
+                display_result =`${parseFloat(result_arr[0]).toFixed(3)} E${result.arr[1]}`
+            }
+        }
     } else {
-        display_result = result;
+        display_result = l_result;
     }
     return display_result;
 }
