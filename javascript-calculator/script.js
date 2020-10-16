@@ -1,5 +1,6 @@
 // Global variables //
 const display = document.querySelector("#display");
+const buttons = document.querySelectorAll('button');
 const display_limit = 9;
 let display_value = "";
 let operator = null;
@@ -9,8 +10,6 @@ let result = null;
 
 
 // Event listeners //
-const buttons = document.querySelectorAll('button');
-
 buttons.forEach(button => {
     button.addEventListener('click', () => {
 
@@ -35,6 +34,16 @@ buttons.forEach(button => {
     });
 });
 
+// Keyboard-support
+window.addEventListener('keydown', function(e) {
+    const button = document.querySelector(`button[data-key="${e.key}"]`);
+    if (!button) return;
+    if (button.classList.contains("numbers")) {
+        populateDisplay(button);
+    } else {
+        handleCalculation(button);
+    }
+});
 
 // Functions //
 function populateDisplay(button) {
