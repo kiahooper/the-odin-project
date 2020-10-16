@@ -49,7 +49,7 @@ function populateDisplay(button) {
         a = null;
     }
 
-    // Display value cannot exceed the display limt (global var)
+    // Input value cannot exceed the display limt (global var)
     if (display_value.length < display_limit) {
 
         const number = button.innerHTML;
@@ -78,31 +78,32 @@ function handleCalculation(button) {
             b = +(display_value);
 
             // If both operands and operator exist, perform calculation
-            if (ensureNoDivisionByZero(operator, b)) {
-                result = roundResultIfNecessary(operate(operator, a, b), 5);
-
-                // Update result, update variables
-                display.innerHTML = result;
+            result = operate(operator, a, b);
+        
+            // Update result, update variables
+            if (result) {
+                display.innerHTML = handleResultLength(result);
                 a = result;
                 operator = null;
                 b = null;
-            }   
+            }
         }
     } else {
         if (a != null && operator != null) {
             b = +(display_value);
 
             // If both operands and operator exist, perform calculation
-            if (ensureNoDivisionByZero(operator, b)) {
-                result = roundResultIfNecessary(operate(operator, a, b), 5);
+            result = operate(operator, a, b);
 
-                // Update result, update variables
-                display.innerHTML = result;
+            // Update result, update variables
+            if (result) {
+                display.innerHTML = handleResultLength(result);
                 a = result;
                 operator = chosen_operator;
                 b = null;  
             }
-    
+
+
         // If operator has been pressed and no first operand exists, update a
         } else if (a === null) {
             a = +(display_value);
@@ -132,14 +133,20 @@ function operate(operator, a, b) {
             break;
         case '/':
             return divide(a,b); 
-            
     }
 }
 
 const add = (a, b) => a + b;
 const subtract = (a, b) => a - b;
 const multiply = (a, b) => a * b;
-const divide = (a, b) => a / b;
+const divide = (a, b) => {if (b !== 0) {
+    return a / b;
+} else {
+        // Check for division by zero
+        display.innerHTML = "NOPE";
+        setTimeout(allClearDisplay, 1300);
+        return false;
+}}
 
 function allClearDisplay() {
     display_value = "";
@@ -159,6 +166,32 @@ function calculatePercentageDisplay() {
     display_value = +(display_value) / 100
     display.innerHTML = display_value;
     display_value = display_value.toString();
+}
+
+function handleResultLength(result) {
+    
+    let display_result;
+    result = result.toString(10);
+    
+    // Check if result is longer than display limit
+    if (result.length > display_limit) {
+        n = result.indexOf(".");
+
+        // If the number is a decimal, round the decimal to fit the display screen
+        if (n !== -1) {
+            display_result = roundResultIfNecessary(result, display_limit-n);
+            
+        } else {
+            // Display long numbers in scientific notation
+            x = result.length - 1;
+            result = ((parseInt(result)) / (10 ** x)).toFixed(5);
+            display_result = `${result} E${x}`;
+        }
+
+    } else {
+        display_result = result;
+    }
+    return display_result;
 }
 
 function roundResultIfNecessary(value, decimals) {
