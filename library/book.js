@@ -1,13 +1,24 @@
-// Global vars 
+/* Global vars */
 const bookshelf = document.querySelector("#bookshelf");
 const new_book_btn = document.querySelector("#new");
 const form = document.querySelector("form");
 let myLibrary = [];
 
-// Initialize
+/* Constructors */
+function Book(title, author, pages, read) {
+    this.title = title
+    this.author = author
+    this.pages = pages
+    this.read = read
+}
+
+// Initialize library
 updateLibrary();
 
-// Event listeners
+/* Event listeners */
+// Form
+form.addEventListener('submit', handleNewBookForm);
+
 const show_form = document.querySelector(".overlay");
 new_book_btn.addEventListener('click', () => {
     show_form.style.display = "block";
@@ -19,8 +30,7 @@ cancel_form_btn.addEventListener('click', () => {
     form.reset();
 });
 
-form.addEventListener('submit', handleNewBookForm);
-
+// Book
 function addBookEventListeners() {
     const remove_btns = document.querySelectorAll(".remove");
     remove_btns.forEach(button => {
@@ -33,28 +43,24 @@ function addBookEventListeners() {
     })
 }
 
-// Constructors
-function Book(title, author, pages, read) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
-}
-
-// Functions
+/* Functions */
 function updateLibrary () {
     let localLibrary = getLibraryFromLocalStorage();
     bookshelf.innerHTML = "";
+    // Check for library in local storage
     if (localLibrary) {
         myLibrary = localLibrary;
     }
+    // If library is empty display message
     if (myLibrary.length === 0) {
         document.querySelector("#empty-library").style.display = "block";
     } else {
         document.querySelector("#empty-library").style.display = "none";
+        // Loop through each object in library, displaying it on page
         myLibrary.forEach((item, index) => {
             let book = document.createElement('div');
             book.classList.add("card");
+            // Attach array-index of book to book's div
             book.setAttribute("data-index", index);
             let read;
             if (item.read) {
@@ -96,6 +102,7 @@ function addBookToLibrary(book) {
 }
 
 function removeBookFromLibrary(e) {
+    // Get data-index from parent div
     let index = e.target.parentNode.getAttribute("data-index");
     myLibrary.splice(index, 1);
     updateLocalStorage();
@@ -103,6 +110,7 @@ function removeBookFromLibrary(e) {
 }
 
 function updateBookReadInstance(e) {
+    // Get data-index from great-grandparent div
     let index = e.target.parentNode.parentNode.parentNode.getAttribute("data-index");
     if (this.checked) {
         myLibrary[index].read = true;

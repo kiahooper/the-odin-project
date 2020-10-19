@@ -1,6 +1,8 @@
+/* Main styles */
 html {
     height: 100%;
 }
+
 body {
     margin: 0;
     font-family: 'Playfair Display', serif;
@@ -9,41 +11,6 @@ body {
     background-position: right bottom;
     background-repeat: no-repeat;
     background-size: 300px;
-}
-
-#bookshelf > div > img {
-    width: 100%;
-}
-
-#bookshelf {
-    display: flex; 
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    padding: 0 1% 0 7%;
-}
-
-.card {
-    width: 20%;
-    background-color: white;
-    border: 2px solid rgb(103, 185, 218);
-    padding: 1%;
-    margin: 0 1% 1% 0;
-    border-radius: 2px;
-}
-
-.container {
-    border-top: 1px solid rgb(103, 185, 218);
-    padding-top: 2px 16px;
-}
-
-.header {
-    text-align: center;
-    margin-bottom: 1%;
-}
-h1 {
-    font-size: 8.0vh;
-    background-color: rgb(250, 198, 87);
-    margin: 1% 0;
 }
 
 .main-btn {
@@ -63,6 +30,74 @@ h1 {
     background-color: rgb(76, 171, 209);
 }
 
+/* Head of page */
+.header {
+    text-align: center;
+    margin-bottom: 1%;
+}
+h1 {
+    font-size: 8.0vh;
+    background-color: rgb(250, 198, 87);
+    margin: 1% 0;
+}
+
+/* Bookshelf */
+#bookshelf > div > img {
+    width: 100%;
+}
+
+#bookshelf {
+    display: flex; 
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding: 0 1% 0 7%;
+}
+
+/* Book */
+.card {
+    width: 20%;
+    background-color: white;
+    border: 2px solid rgb(103, 185, 218);
+    padding: 1%;
+    margin: 0 1% 1% 0;
+    border-radius: 2px;
+}
+
+.container {
+    border-top: 1px solid rgb(103, 185, 218);
+    padding-top: 2px 16px;
+}
+
+h4 {
+    font-size: 3.0vh;
+    margin: 3% 0 3% 0;
+}
+
+p {
+    font-size: 2.4vh;
+    margin: 2% 0 0 0;
+}
+
+#read {
+    width: 3.0vw;
+    height: 3.0vh;   
+}
+
+.remove {
+    font-family: sans-serif;
+    font-size: 4.0vh;
+    text-decoration: none;
+    position:absolute; 
+    border: none;
+    background-color: transparent;
+    color: rgb(103, 185, 218);
+}
+
+.remove:hover {
+    cursor: pointer;
+}
+
+/* Form */
 .overlay {
     background-color: rgba(0,0,0,0.80);
     z-index: 999;
@@ -90,12 +125,6 @@ h1 {
     font-size: 2.8vh;
 }
 
-#read {
-    width: 3.0vw;
-    height: 3.0vh;
-    
-}
-
 .form h2 {
     margin: 0;
     font-size: 4.9vh;
@@ -108,31 +137,7 @@ h1 {
     text-align: center;
 }
 
-.remove {
-    font-family: sans-serif;
-    font-size: 4.0vh;
-    text-decoration: none;
-    position:absolute; 
-    border: none;
-    background-color: transparent;
-    color: rgb(103, 185, 218);
-}
-
-.remove:hover {
-    cursor: pointer;
-}
-
-h4 {
-    font-size: 3.0vh;
-    margin: 3% 0 3% 0;
-}
-
-p {
-    font-size: 2.4vh;
-    margin: 2% 0 0 0;
-}
-
-/* The switch - the box around the slider */
+/* The  read slider checkbox and labels */
 .switch {
   position: relative;
   display: inline-block;
@@ -141,12 +146,11 @@ p {
   margin: 10px 0 0 0;
 }
 
-/* Hide default HTML checkbox */
 .switch input {
     display: none;
 }
 
-/* The slider */
+
 .slider {
   position: absolute;
   cursor: pointer;
