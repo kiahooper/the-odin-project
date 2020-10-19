@@ -4,7 +4,7 @@ const new_book_btn = document.querySelector("#new");
 const form = document.querySelector("form");
 let myLibrary = [];
 
-/* Objects */
+/* Object constructors */
 function Book(title, author, pages, read) {
     this.title = title
     this.author = author
