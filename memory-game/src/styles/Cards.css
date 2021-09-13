@@ -1,0 +1,20 @@
+img {
+  width: 100%;
+  object-fit: contain;
+}
+
+#card_container {
+  width: 60%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 8px;
+  border-collapse: collapse;
+}
+
+.cards {
+  padding: 5%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  background-color: pink;
+}

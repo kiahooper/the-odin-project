@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Restaurant Page</title>
+  <link  href="styles.css" rel="stylesheet" type='text/css'>
+  <link href='../node_modules/tabsy-css/dist/tabsy.css' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div class="tabsy">
+    <input type="radio" id="tab1" class="tabs" name="tab" data-tab="home" checked>
+    <label class="tabButton tabBtn" for="tab1">Home</label>
+    <div class="tab">
+        <div id="contentHome" class="content">
+
+        </div>
+    </div>
+
+    <input type="radio" id="tab2" name="tab" class="tabs" data-tab="menu">
+    <label class="tabButton tabBtn" for="tab2">Menu</label>
+    <div class="tab">
+        <div id="contentMenu" class="content">
+
+        </div>
+    </div>
+
+    <input type="radio" id="tab3" name="tab" class="tabs" data-tab="contact">
+    <label class="tabButton tabBtn" for="tab3">Contact</label>
+    <div class="tab">
+        <div id="contentContact" class="content">
+
+        </div>
+    </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

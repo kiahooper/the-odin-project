@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>TODOs</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1>T O D O s</h1>  
+        <div class="container">
+            <div class="project_module wrapper">
+                <h2>Projects</h2>
+                <div class="new_project_container">
+                        <input id="new_project" type="text" placeholder="Add a New Project">
+                        <button type="button">+</button>
+                </div>    
+                <form class="projects">
+                    <input type="radio" id="today" name="time" class="tabs_radio">
+                    <label for="today" class="tabs_label">Today</label>
+                    <input type="radio" id="upcoming" name="time" class="tabs_radio">
+                    <label for="upcoming" class="tabs_label">Upcoming</label>
+                    <input type="radio" id="anytime" name="time" class="tabs_radio">
+                    <label for="anytime" class="tabs_label">Anytime</label>
+                </form>
+                <form id="projects" class="projects"> 
+                </form>
+            </div>
+            <div class="todo_module wrapper">  
+                <form class="new_task_form" style="display: none;">
+                    <h2>Create Your New Task</h2>
+                    <input type="text" id="title" placeholder="Task Name" class="form_input">
+                    <input type="text" id="description" placeholder="Description" class="form_input">
+                    <input type="date" id="dueDate" placeholder="Needs to be completed by..." class="form_input">
+                    <input type="checkbox" id="priority" name="priority" class="checkbox_input">
+                    <label for="priority" class="checkbox_input">Important</label>
+                    <input type="textarea" id="notes" placeholder="Further Notes" class="form_input">
+                    <button type="submit">Create</button>
+                </form>
+                <form class="edit_task_form" style="display: none;">
+                    <h2>Edit Task</h2>
+                    <input type="text" maxlength="10" data-name="title" id="new_title" placeholder="Task Name" class="form_input">
+                    <input type="text" data-name="description" id="new_description" placeholder="Description" class="form_input">
+                    <input type="date" data-name="dueDate" id="new_dueDate"placeholder="Needs to be completed by..." class="form_input">
+                    <input type="checkbox" data-name="priority" id="new_priority" name="priority" class="checkbox_input">
+                    <label for="new_priority" class="checkbox_input">Important</label>
+                    <input type="textarea" data-name="notes" id="new_notes" placeholder="Further Notes" class="form_input">
+                    <button type="submit" value="submit">Save</button>
+                </form>
+                <div class="todo_list">
+                    <button type="button" id="new_task_btn">Add New Task</button>
+                    <ul id="list"></ul>
+                </div>
+            </div>
+        </div>
+        
+<! -- Templates -->
+        <template id="todo_list_template">
+            <li>                
+                <div class="todo_checkbox_and_id">  
+                </div>
+                <div class="todo_btns">
+                    <button type="button" class="edit">Edit</button>
+                    <button type="button" class="remove">Remove</button>
+                </div>
+                <div class="todo_detail">
+                </div>
+            </li>
+        </template>
+
+        <template>
+
+        </template>
+
+        <script src="main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,22 @@
+#header {
+  width: max-content;
+  padding: 5%;
+  margin: 2% auto 0 auto;
+  text-align: center;
+  background-image: url("./media/fruit.png");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+h1 {
+  margin: 0;
+  font-size: 3.5vw;
+  letter-spacing: 0.1em;
+}
+
+h2 {
+  margin: 0;
+  font-size: 2vw;
+  letter-spacing: 0.1em;
+}

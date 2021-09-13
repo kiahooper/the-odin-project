@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
+body {
+    margin: 0;
+    background-color: rgb(253, 253, 253);
+    background: url("./media/background.jpg") right -50px bottom fixed no-repeat;
+    background-size: contain;
+    font-family: 'Staatliches', cursive;
+  }
+
+  #scoreboard_cards {
+      margin: 0 2% 2% 6%;
+      width: 72%;
+      display: flex;
+  }

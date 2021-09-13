@@ -1,0 +1,50 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Wetter Weather</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div id="bg">
+      <div id="home_content">
+        <h1>WETTER WEATHER</h1>
+        <h2>YOU CAN'T CHANGE IT, BUT YOU CAN KNOW IT.</h2>
+        
+        <button type="button" id="btn_geo_location"><img src="location.png"><h3>Find My Current Location</h3></button>
+        <p>- OR -</p>
+        <div id="city_country_wrapper">
+          <div id="city_wrapper">
+            <label for=>City</label>
+            <input type="text" id="city">
+          </div>
+          <div id="country_wrapper">
+            <label for="country">Country</label>
+            <input type="text" id="country" autocomplete="country"/>
+          </div>
+        </div>
+        <button type="button" id="btn_manual_location"><h3>Make It Rain</h3></button>
+      </div>
+      <div id="result_content" style="display: none;">
+        <h1>WETTER WEATHER</h1>
+        <div id="in_case_of_error_wrapper">
+          <h2 id="info_city_country">City, Country</h2>
+          <h3 id="info_date">Date</h3>
+          <h3 id="info_description">Main description, description</h3>
+          <div id="temperature_wrapper">
+          <div id="temperature_wrapper1">
+            <h1 id="info_temp">Temperature</h1>
+          </div>
+          <div id="temperature_wrapper2">
+            <h4 id="info_feels">Feels like</h4>
+            <h4 id="info_min">min</h4>
+            <h4 id="info_max">max</h4>
+          </div>
+        </div>          
+      </div>
+      <div id="gif_wrapper">
+        <img id="gif" src="#"/>
+      </div>
+    </div>
+  </body>
+  <script src="main.js"></script>
+</html>

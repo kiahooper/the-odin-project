@@ -1,0 +1,51 @@
+body {
+    margin: 19px;
+    background-color: rgb(246, 248, 237);
+}
+
+h1, h4 {
+    color: rgb(90, 82, 67);
+}
+
+img {
+    display: block;
+    margin: auto;
+    max-width: 30%;
+    height: auto;
+}
+
+.tabBtn {
+    font-size: 30px;
+    padding: 10px;
+}
+
+.content {
+    text-align: center;
+    padding: 20px;
+    height: 76.0vh;
+    width: 94.0vw;
+}
+
+form > input, form > label {
+    font-family: serif;
+    font-size: 20px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.button {
+    background-color:  rgb(90, 82, 67);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+.button:hover {
+    cursor: pointer;
+    background-color:  rgb(70, 62, 47);
+
+}

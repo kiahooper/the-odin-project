@@ -1,0 +1,179 @@
+:root {
+    --green: rgb(145, 173, 128);
+    --dark-green: rgb(119, 138, 107);
+    --light-green: rgb(219, 231, 212);
+    --beige: rgb(247, 247, 245);
+}
+
+body {
+    font-size: 2.0vw;
+    margin: 0;
+    padding: 0;
+    background-color: var(--beige);
+    font-family: 'Quicksand', sans-serif;
+}
+
+body, html {
+    height: 98%;
+}
+
+
+h1 {
+    margin: 2% 0;
+    color: var(--green);
+    text-align: center;
+}
+
+input {
+    font-size: 1.8vw;
+    padding: 1%;
+    margin: 3% 0 3% 0;
+    text-decoration: none;
+    outline: none;
+    border: 1px solid lightgray;
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.projects {
+    padding: 5% 0 5% 0;
+}
+
+.tabs_radio {
+    position: absolute;
+    left: -9999px;
+}
+
+.tabs_label {
+    display: block;
+    padding: 2%;
+}
+
+.tabs_radio:checked+label {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 5px 0 0 5px;
+    cursor: pointer;
+    background-color: white;
+}
+
+button {
+    border-radius: 5px;
+    background-color: var(--green); /* Green */
+    border: none;
+    color: white;
+    padding: 7px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.8vw;
+}
+
+button:hover {
+    background-color: var(--dark-green);
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.new_project_container > button {
+    width: 3vw;
+    height: 3vw;
+    border-radius: 50%;
+}
+
+.container {
+    display: flex;
+    margin: auto;
+    width: 90%;
+    height: 90%;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.wrapper {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 2%;
+}
+
+h2 {
+    margin: 0;
+    color: var(--green);
+}
+
+.project_module {
+    width: 50%;
+    padding-right: 0;
+    background-color: var(--light-green);
+}
+
+.todo_module {
+    width: 100%;
+    background-color: white;
+    overflow: scroll;
+}
+
+.task_form_wrapper {
+    box-sizing: border-box;
+}
+
+.todo_module > form > input[type="text"], input[type="date"], input[type="textarea"] {
+    display: block;
+    width: 95%;
+}
+
+#projects {
+    border-top: 1px solid var(--dark-green);
+    padding: 5% 0 0 5%;
+    margin-left: -6%;
+}
+
+#list > li {
+    overflow: hidden;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    padding: 2%;
+    border-bottom: 1px solid lightgray;
+    display: grid;
+    grid-template-areas: "checkbox label buttons"
+                         "detail detail detail"
+}
+
+#todo_checkbox_and_id > input{
+    grid-area: checkbox;
+}
+
+#todo_checkbox_and_id > label{
+    grid-area: label;
+}
+
+.todo_btns {
+    text-align: end;
+    grid-area: buttons;
+    margin-left: 5%;
+}
+
+
+.todo_detail {
+    grid-area: detail;
+    background-color: white;
+    border-radius: 5px;
+    height: 0;
+    overflow: hidden;
+    padding: 0 10px;
+    transition: all 1s ease-out;
+}
+
+.todo_detail.shown {
+    height: auto;
+    margin-top: 12px;
+    padding: 10px 10px;
+}
+
+.todo_detail > p {
+    margin: 0;
+}
+
+.completed {
+    text-decoration: line-through;
+}

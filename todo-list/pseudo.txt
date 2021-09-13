@@ -1,0 +1,4 @@
+- todo detail view
+- Checkboxes
+- Sort by dates
+- Local storage
